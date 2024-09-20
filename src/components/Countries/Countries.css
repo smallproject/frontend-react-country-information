@@ -13,6 +13,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 
     gap: 3rem;
 
@@ -23,9 +24,15 @@
 
 .country-detail {
     /*border: 1px solid lightgray;*/
-    border-radius: 15px;
+    width: 20%;
 
-    flex-grow: 1;
+    /*border-radius: 15px;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: lightgray 1px solid;
+    align-items: start;
+    background-color: white;
 }
 
 .flags-images {
