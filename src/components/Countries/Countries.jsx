@@ -14,15 +14,20 @@ function Countries() {
     const [isHidden, setIsHidden] = useState(false);
 
     async function fetchCountryData() {
-        setIsLoading(true);
-        setError("");
+        setIsLoading(true); // Indicates the loading state
+        setError(""); // Resets the error state
         try {
+            // Fetch the list of countries from the API
             const response = await axios.get(`https://restcountries.com/v3.1/all`);
+
+            // Store the list of countries fetched from the API
             setCountries(response.data.sort((a, b) => a.population - b.population));
             setIsHidden(true);
 
         } catch (error) {
             setError(error.message);
+        } finally {
+            setIsLoading(false);
         }
 
     }
@@ -34,13 +39,12 @@ function Countries() {
                 <button onClick={fetchCountryData} hidden={isHidden}>fetch data</button>
 
 
+                { error && <p>Error: { error }</p>}
+                { isLoading && <p>Loading...</p>}
+
                 <div className={"flags-container"}>
-                {/*<ul>*/}
-                    <br/>
                     {
                         countries.map((country) => (
-                            // <li key={country.data.id}>{country.data.name}</li>
-
                             <div key={country.id+country.name} className="country-detail">
                                  <CountryTitle
                                     region={country.region}
