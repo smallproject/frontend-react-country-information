@@ -1,0 +1,15 @@
+.Main {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Main div {
+    flex-grow: 1;
+
+}
+
+.header-image {
+    width: 100%;
+}
